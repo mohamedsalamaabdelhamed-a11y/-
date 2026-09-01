@@ -54,7 +54,13 @@ jobs:
             libffi-dev \
             uuid-dev \
             zip \
-            unzip
+            unzip \
+            autoconf \
+            libtool \
+            pkg-config \
+            cmake \
+            lld \
+            ccache
 
       - name: Install Python Dependencies
         run: |
@@ -64,7 +70,7 @@ jobs:
 
       - name: Build with Buildozer
         run: |
-          buildozer android debug
+          yes | buildozer android debug
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4.6.1
